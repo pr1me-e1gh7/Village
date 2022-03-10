@@ -1,9 +1,15 @@
-function signupModal() {
+import React from 'react';
+import Button from './signupModal';
+
+function loginModal() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
+    // What goes here?
+    // const handleSubmit = () => "";
+
   
     return (
       <>
@@ -22,12 +28,8 @@ function signupModal() {
             <Modal.Title>Sign Up Here</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input class="first-name">First Name:</input>
-            <input class="last-name">Last Name:</input>
-            <input class="email">Email:</input>
             <input class="username">Username:</input>
             <input class="password">Password:</input>
-            <input class="confirm-password">Confirm Password:</input>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
@@ -40,4 +42,4 @@ function signupModal() {
     );
   }
   
-  render(<signupModal />);
+  render(<loginModal />);
