@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './signupModal';
+import Button from './Signup';
 
 function loginModal() {
     const [show, setShow] = useState(false);
