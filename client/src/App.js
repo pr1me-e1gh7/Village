@@ -1,86 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-
-import Home from './pages/Home';
-import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Nav from './components/Nav';
-import { StoreProvider } from './utils/GlobalState';
-import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
-import Footer from './components/Footer';
-
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+// Loads landing page - update to add Login Status Check
+import React from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Welcome from "./components/Welcome.js";
+import SideNav from "./components/SideNav.js";
+import Signup from "./components/Modals/Signup";
+import Login from "./components/Modals/Login";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <StoreProvider>
-            <Nav />
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route 
-                path="/success" 
-                element={<Success />} 
-              />
-              <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
-              />
-              <Route 
-                path="/products/:id" 
-                element={<Detail />} 
-              />
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
-              />
-            </Routes>
-          </StoreProvider>
-          <Footer/>
-        </div>
-      </Router>
-    </ApolloProvider>
-  );
+    <BrowserRouter>
+      <SideNav></SideNav>
+      <Routes>
+        <Route path='/' exact element={<Welcome/>} />
+        <Route path='/Signup' exact element={<Signup/>} />
+        <Route path='/Login' exact element={<Login/>} />
+      </Routes>
+      <Footer></Footer>
+    </BrowserRouter>
+  )
 }
 
 export default App;
