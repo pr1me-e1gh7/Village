@@ -1,8 +1,8 @@
 // SideNav, only apparent once logged in
 import React from "react";
 import { Nav } from "react-bootstrap";
-import { withRouter } from "react-router";
-import '../pages/style/Dashboard.css'
+// import { withRouter } from "react-router";
+// import '../pages/style/Dashboard.css'
 
 function Side ({ name, ...props }) {
     const [show, setShow] = useState(false);
@@ -69,5 +69,5 @@ function NavPlacement() {
   
   render(<NavPlacement />);
 
-const SideNav = withRouter(Side);
+// const SideNav = withRouter(Side);
 export default SideNav
