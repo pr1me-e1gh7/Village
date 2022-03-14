@@ -2,18 +2,15 @@
 import React from 'react';
 import { MDBIcon, MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBContainer, MDBRow, MDBBtn } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-
 class SideNav {
     state = {
         isOpen: false
     }
-
     handleToggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     };
-
     render() {
         const { isOpen } = this.state;
             return (
@@ -69,5 +66,4 @@ class SideNav {
         );
     }
 }
-
 export default SideNav
