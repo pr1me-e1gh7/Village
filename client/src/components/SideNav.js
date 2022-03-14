@@ -42,10 +42,6 @@ function Side ({ name, ...props }) {
                         <Nav.Link href="https://www.who.int/">Your World</Nav.Link>
                     </Nav.Item>
                     
-                    {/* Settings Modal */}
-                    <Nav.Item>
-                        <Nav.Link href="/Modals/SettingsModal">Settings</Nav.Link>
-                    </Nav.Item>
                     
                     {/* Add Sign Out below */}
                     <></>
