@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Signup';
 
-function loginModal() {
+export default function LoginModal() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -42,4 +42,4 @@ function loginModal() {
     );
   }
   
-  render(<loginModal />);
+  render(<LoginModal />);
