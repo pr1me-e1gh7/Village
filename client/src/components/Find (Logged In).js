@@ -1,1 +1,0 @@
-// Find "Find Your Village" page, Signing Up version
