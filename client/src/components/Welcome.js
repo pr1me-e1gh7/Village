@@ -1,19 +1,18 @@
 // Welcome page / Landing page
 import React from 'react';
-import bkgd from '../assets/stock-smalltown.jpg'
-import logo from '../assets/Village-LogoRed (cropped)'
+import bkgd from '../assets/stocksmalltown.jpg'
+import logo from '../assets/villagelogoredcropped.png'
 import Button from 'react-bootstrap/Button'
-// import { BrowserRouter, Router, Link, Route } from 'react-router-dom';
 
-export default function Welcome () {
-    return (
-        <>
-            <img src={bkgd} alt="smalltown" className="custom-img absolute object-fill w-full h-full" style="opacity:20%; background-color:#FFFFFF;"></img>
+const Welcome = () => (
+    <>
+            <img src={bkgd} alt="smalltown" className="custom-bkgd"></img>
             <main className="relative">
-                <img src={logo} alt="Villagelogo" className="custom-img absolute object-fill h-auto" style="width:50%"></img>
-                <Button style="background-color:#FF0000; color:#FFFFFF;"><a href='./modals/Signup.js'>Signup</a></Button>
-                <Button style="background-color:#FF0000; color:#FFFFFF;"><a href='./modals/Login.js'>Login</a></Button>
+                <img src={logo} alt="Villagelogo"></img>
+                <Button className='custom-button'><a href='./Signup'>Signup</a></Button>
+                <Button className='custom-button'><a href='./Login'>Login</a></Button>
             </main>
-        </>
-    );
-};
+    </>
+);
+
+export default Welcome;

@@ -210,3 +210,13 @@ input:focus {
     width: 100%;
   }
 }
+
+.custom-bkgd {
+  opacity:20%;
+  background-color:#FFFFFF;
+}
+
+.custom-button {
+  background-color:#FF0000;
+  color:#FFFFFF;
+}
