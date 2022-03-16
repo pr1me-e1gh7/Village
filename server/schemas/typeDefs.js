@@ -6,7 +6,7 @@ const typeDefs = gql`
     _id: ID
     postAuthor: String
     postText: String
-    createdAt: Date
+    createdAt: String
     mood: String
     comments: [Comment]
   }
@@ -15,7 +15,7 @@ const typeDefs = gql`
     _id: ID
     commentText: String
     commentAuthor: String
-    createdAt: Date
+    createdAt: String
 
   }
 
@@ -23,10 +23,10 @@ const typeDefs = gql`
 
   type User {
     _id: ID
-    firstName: String
-    lastName: String
     email: String
-   
+    username: String
+    password: String
+    posts: [Post]
   }
 
  
@@ -44,9 +44,9 @@ const typeDefs = gql`
 
   
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    addPost(postText: String, mood: String!)
+    addUser(username: String!, email: String!, password: String!): Auth
+    updateUser(username: String, email: String, password: String): User
+    addPost(postText: String, mood: String!): Post
     login(email: String!, password: String!): Auth
   }
 `;

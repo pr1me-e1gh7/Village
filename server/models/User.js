@@ -5,12 +5,7 @@ const bcrypt = require('bcrypt');
 
 
 const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  lastName: {
+  username: {
     type: String,
     required: true,
     trim: true
@@ -25,6 +20,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Posts',
+  }]
   
 });
 
