@@ -21,4 +21,5 @@ Have a clean repository that meets quality coding standards
 Look professional and be mobile-friendly
 ```
 ## 🎨 Preview
-GIF or MP4 preview of project goes here
+https://user-images.githubusercontent.com/92904832/158762188-7d8d8acd-f74a-4b51-8a0e-27df84caae85.mp4
+
