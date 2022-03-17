@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import logo from '../../assets/villagelogowhitecropped.png'
+import bkgd from '../../assets/stocksmalltown3.gif'
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
 import Auth from '../../utils/auth';
 
 const Signup = () => {
@@ -38,18 +39,23 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
+    <>
+      <img src={bkgd} alt="entrybkgd" className='custombkgd'></img>
+      <header className='bgcustom text-light p-2'>
+        <img src={logo} alt="villagelogo" className='entrylogo'></img>
+      </header>
+      <body className='entryPage'>
+        {data ? (
+          <p>
+            Success! You may now head{' '}
+            <Link to="/Profile">back to the homepage.</Link>
+          </p>
+        ) : (
+          
+          <form onSubmit={handleFormSubmit}>
+            <ul className='entryStyle'>
+              <li>Signup Below</li>
+              <li>
                 <input
                   className="form-input"
                   placeholder="Your username"
@@ -58,6 +64,8 @@ const Signup = () => {
                   value={formState.name}
                   onChange={handleChange}
                 />
+              </li>
+              <li>
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -66,6 +74,8 @@ const Signup = () => {
                   value={formState.email}
                   onChange={handleChange}
                 />
+              </li>
+              <li>
                 <input
                   className="form-input"
                   placeholder="******"
@@ -74,6 +84,8 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+              </li>
+              <li>
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: 'pointer' }}
@@ -81,18 +93,17 @@ const Signup = () => {
                 >
                   Submit
                 </button>
-              </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+              </li>
+            </ul>
+          </form>
+        )}
+        {error && (
+          <div className="my-3 p-3 bg-danger text-white">
+            {error.message}
           </div>
-        </div>
-      </div>
-    </main>
+        )}
+      </body>
+    </>
   );
 };
 
