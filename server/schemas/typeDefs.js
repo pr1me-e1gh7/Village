@@ -10,17 +10,7 @@ const typeDefs = gql`
     mood: String
     comments: [Comment]
   }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
-
-  }
-
- 
-
+  
   type User {
     _id: ID
     email: String
@@ -28,20 +18,28 @@ const typeDefs = gql`
     password: String
     posts: [Post]
   }
-
- 
-
+  
+  
   type Auth {
     token: ID
     user: User
   }
-
-  type Query {
-    posts: [Post]
-    post(postId: ID!): Post 
-    user(userId: ID!): User
+  
+  type Comment {
+    _id: ID
+    commentText: String
+    commentAuthor: String
+    createdAt: String
   }
 
+
+  
+  type Query {
+    posts: [Post]
+    users: [User]
+    post(postId: ID!): Post
+    user(userId: ID!): User
+  }
   
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
@@ -49,6 +47,8 @@ const typeDefs = gql`
     addPost(postText: String, mood: String!): Post
     login(email: String!, password: String!): Auth
   }
-`;
+  `;
+  
+  module.exports = typeDefs;
+  
 
-module.exports = typeDefs;
