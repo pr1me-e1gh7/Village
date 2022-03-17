@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post } = require('../models');
 const { signToken } = require('../utils/auth');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
 
 const resolvers = {
   Query: {
@@ -12,6 +12,12 @@ const resolvers = {
     post: async (parent, {postId} ) => {
       return Post.findOne({_id: postId})
     },
+ hello
+   
+   
+
+      
+
 
     user: async (parent, {userId}) => {
       return User.findOne({_id: userId}).populate('posts')
@@ -81,6 +87,7 @@ const resolvers = {
 
   //     return { session: session.id };
   //   }
+main
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -89,6 +96,9 @@ const resolvers = {
       return { token, user };
     },
     
+hello
+    
+
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
@@ -108,6 +118,7 @@ const resolvers = {
       return post;
     },
 
+main
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -124,8 +135,11 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
-  }
+    },
+
+    
+  },
 };
+
 
 module.exports = resolvers;
