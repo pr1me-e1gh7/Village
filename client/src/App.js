@@ -1,12 +1,16 @@
 // Loads landing page - update to add Login Status Check
-import React from 'react';
+import React, { Profiler } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Welcome from "./components/Welcome.js";
-import Signup from './components/Modals/Signup.js';
-import Login from './components/Modals/Login.js';
 import Footer from "./components/Footer.js";
+import Login from './components/Modals/Login.js';
+import Profile from "./components/Profile.js";
+import Signup from './components/Modals/Signup.js';
+import Village from './components/Village.js';
+import Welcome from "./components/Welcome.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -39,7 +43,8 @@ function App() {
           <Route path='/' exact element={<Welcome/>} />
           <Route path='/Signup' exact element={<Signup/>} />
           <Route path='/Login' exact element={<Login/>} />
-          {/* <Route path='/Village' exact element={<Village/>} /> */}
+          <Route path='/Profile' exact element={<Profile/>} />
+          <Route path='/Village' exact element={<Village/>} />
         </Routes>
         <Footer></Footer>
       </Router>
