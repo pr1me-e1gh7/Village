@@ -1,12 +1,16 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+
+
 export default function previousEntry() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
-    // What goes here?
-    // const handleSubmit = () => "";
 
+    
   
     return (
       <>
