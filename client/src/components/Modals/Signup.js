@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../assets/villagelogowhitecropped.png'
+import bkgd from '../../assets/stocksmalltown3.gif'
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
@@ -39,53 +40,61 @@ const Signup = () => {
 
   return (
     <>
-      <header className='bg-dark text-light p-2'>
+      <img src={bkgd} alt="entrybkgd" className='custombkgd'></img>
+      <header className='bgcustom text-light p-2'>
         <img src={logo} alt="villagelogo" className='entrylogo'></img>
       </header>
-      <body>
+      <body className='entryPage'>
         {data ? (
           <p>
             Success! You may now head{' '}
-            <Link to="/">back to the homepage.</Link>
+            <Link to="/Profile">back to the homepage.</Link>
           </p>
         ) : (
           
           <form onSubmit={handleFormSubmit}>
-            <ul>
+            <ul className='entryStyle'>
+              <li>Signup Below</li>
               <li>
+                <input
+                  className="form-input"
+                  placeholder="Your username"
+                  name="username"
+                  type="text"
+                  value={formState.name}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </li>
+              <li>
+                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </button>
               </li>
             </ul>
-            <input
-              className="form-input"
-              placeholder="Your username"
-              name="username"
-              type="text"
-              value={formState.name}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="Your email"
-              name="email"
-              type="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="******"
-              name="password"
-              type="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-            <button
-              className="btn btn-block btn-primary"
-              style={{ cursor: 'pointer' }}
-              type="submit"
-            >
-              Submit
-            </button>
           </form>
         )}
         {error && (

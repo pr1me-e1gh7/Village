@@ -343,8 +343,29 @@ input:focus {
 }
 .entrylogo {
   height: auto;
+  left: 50%;
   width: 200px;
-  display: flex;
+  margin: auto;
+  display: block;
   text-align: center;
   justify-content: center;
+}
+.entryStyle {
+  list-style: none;
+  list-style-type: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30%;
+}
+.entryPage {
+  margin: auto;
+}
+form li {
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
+.bgcustom {
+  background-color: #FF0000;
 }
